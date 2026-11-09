@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anti-keylogger-detection-lab"
+version = "1.0.0"
+description = "Behavioural detection and quarantine of keylogger-style behaviour, taught with a simulator that captures no input. Education and defence only."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["lab"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
