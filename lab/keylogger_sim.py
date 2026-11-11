@@ -36,9 +36,14 @@ def _synthetic_chunk(rng: random.Random, n: int = 24) -> str:
     return " ".join(rng.choice(WORDS) for _ in range(n))
 
 
+VARIANTS = ("basic", "renamed", "encoded", "slow")
+
+
 def run_simulation(sandbox: Path, log: TelemetryLog, variant: str = "basic",
                    appends: int = 6, seed: int = 42) -> Path:
     """Create one dummy artifact plus its telemetry. Returns the artifact."""
+    if variant not in VARIANTS:
+        raise ValueError(f"unknown variant: {variant!r} (expected one of {VARIANTS})")
     rng = random.Random(seed)
     art_dir = sandbox / "artifacts"
     art_dir.mkdir(parents=True, exist_ok=True)

@@ -6,9 +6,8 @@ everything, a claim this repo makes about itself in the README
 because it is true of every real product too.
 
 - signature tier: the artifact's known fixture format or name.
-- heuristic tier: artifact properties alone (steady small-append
-  growth pattern recorded in telemetry, log-like file in an
-  artifacts folder, encoded content with append telemetry).
+- heuristic tier: at least three log_append events for the actor.
+  Reported on its own; it does not by itself flag an actor.
 - behavioural tier: the correlation that actually convicts:
   hook-install pattern AND periodic log appends AND a beacon
   reporting the artifact's size, from the same actor, in one run.

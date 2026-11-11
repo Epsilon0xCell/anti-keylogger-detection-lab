@@ -19,6 +19,12 @@ def _run_variants(sandbox):
     return log
 
 
+def test_unknown_variant_is_refused(sandbox):
+    log = TelemetryLog()
+    with pytest.raises(ValueError):
+        keylogger_sim.run_simulation(sandbox, log, variant="encodde")
+
+
 def test_simulator_captures_nothing_by_construction():
     import inspect
     src = inspect.getsource(keylogger_sim)
